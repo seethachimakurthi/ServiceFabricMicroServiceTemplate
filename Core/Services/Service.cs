@@ -9,68 +9,71 @@ using System.Threading.Tasks;
 
 namespace Renting.Master.Core.Services
 {
-    public class Service<TId, TEntity> : IService<TId, TEntity> where TId : struct where TEntity : EntityBase
+    public class Service<TId, TEntity, TEntityDto> : IService<TId, TEntity, TEntityDto>
+        where TId : struct
+        where TEntityDto : EntityBase
+        where TEntity : Domain.Entities.EntityBase
     {
-        private readonly IERepository<TId,Domain.Entities.EntityBase> repository;
+        private readonly IERepository<TId, TEntity> repository;
 
-        public Service(IERepository<TId, Domain.Entities.EntityBase> repository)
+        public Service(IERepository<TId, TEntity> repository)
         {
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync()
+        public async Task<IEnumerable<TEntityDto>> GetAllAsync()
         {
-            return from entity in await repository.GetAllAsync()
-                   select Mapper.Map<TEntity>(entity);
+            return from book in await repository.GetAllAsync()
+                   select Mapper.Map<TEntityDto>(book);
         }
-        public async Task<TEntity> FindByIdAsync(TId id)
+        public async Task<TEntityDto> FindByIdAsync(TId id)
         {
-            Domain.Entities.EntityBase entity = await repository.FindByIdAsync(id);
-            return entity != null ? Mapper.Map<TEntity>(entity) : null;
+            TEntity book = await repository.FindByIdAsync(id);
+            return book != null ? Mapper.Map<TEntityDto>(book) : null;
         }
-        public async Task AddAsync(TEntity entity)
+        public async Task AddAsync(TEntityDto entity)
         {
-            await repository.AddAsync(Mapper.Map<Domain.Entities.EntityBase>(entity));
+            await repository.AddAsync(Mapper.Map<TEntity>(entity));
         }
-        public async Task DeleteAsync(TEntity entity)
+        public async Task DeleteAsync(TEntityDto entity)
         {
-            await repository.DeleteAsync(Mapper.Map<Domain.Entities.EntityBase>(entity));
+            await repository.DeleteAsync(Mapper.Map<TEntity>(entity));
         }
         public async Task DeleteAsync(TId entityId)
         {
-            Domain.Entities.EntityBase entity = repository.FindById(entityId);
+            TEntity entity = repository.FindById(entityId);
             await repository.DeleteAsync(entity);
         }
-        public async Task UpdateAsync(TEntity entity)
+        public async Task UpdateAsync(TEntityDto entity)
         {
-            await repository.UpdateAsync(Mapper.Map<Domain.Entities.EntityBase>(entity));
+            await repository.UpdateAsync(Mapper.Map<TEntity>(entity));
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public IEnumerable<TEntityDto> GetAll()
         {
-            return from entity in repository.GetAll()
-                   select Mapper.Map<TEntity>(entity);
+            return from book in repository.GetAll()
+                   select Mapper.Map<TEntityDto>(book);
         }
-        public TEntity FindById(TId id)
+        public TEntityDto FindById(TId id)
         {
-            Domain.Entities.EntityBase entity = repository.FindById(id);
-            return entity != null ? Mapper.Map<TEntity>(entity) : null;
+            TEntity book = repository.FindById(id);
+            return book != null ? Mapper.Map<TEntityDto>(book) : null;
         }
-        public void Add(TEntity entity)
+        public void Add(TEntityDto entity)
         {
-            repository.Add(Mapper.Map<Domain.Entities.EntityBase>(entity));
+            repository.Add(Mapper.Map<TEntity>(entity));
         }
-        public void Update(TEntity entity)
+        public void Update(TEntityDto entity)
         {
-            repository.Update(Mapper.Map<Domain.Entities.EntityBase>(entity));
+            repository.Update(Mapper.Map<TEntity>(entity));
         }
-        public void Delete(TEntity entity)
+        public void Delete(TEntityDto entity)
         {
-            repository.DeleteAsync(Mapper.Map<Domain.Entities.EntityBase>(entity));
+            repository.DeleteAsync(Mapper.Map<TEntity>(entity));
         }
         public void Delete(TId entityId)
         {
-            Domain.Entities.EntityBase entity = repository.FindById(entityId);
+            TEntity entity = repository.FindById(entityId);
             repository.Delete(entity);
         }
     }
