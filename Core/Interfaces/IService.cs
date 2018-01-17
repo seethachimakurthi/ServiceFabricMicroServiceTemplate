@@ -1,10 +1,10 @@
-﻿using Renting.Master.Core.Dtos;
+﻿
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Renting.Master.Core.Interfaces
 {
-    public interface IService<TId, TEntity> where TId : struct where TEntity : EntityBase
+    public interface IService<TId, TEntity, TEntityDto> where TId : struct where TEntity : Domain.Entities.EntityBase where TEntityDto: Core.Dtos.EntityBase
     {
         Task<IEnumerable<TEntity>> GetAllAsync();
         IEnumerable<TEntity> GetAll();

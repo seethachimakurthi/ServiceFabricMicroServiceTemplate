@@ -1,9 +1,9 @@
-C:\Users\jose.fernandez\source\repos\TemplateSF\Domain\bin\Debug\netstandard2.0\Renting.Master.Domain.deps.json
-C:\Users\jose.fernandez\source\repos\TemplateSF\Domain\bin\Debug\netstandard2.0\Renting.Master.Domain.dll
-C:\Users\jose.fernandez\source\repos\TemplateSF\Domain\bin\Debug\netstandard2.0\Renting.Master.Domain.pdb
 C:\Users\jose.fernandez\source\repos\TemplateSF\Domain\obj\Debug\netstandard2.0\Renting.Master.Domain.csprojResolveAssemblyReference.cache
 C:\Users\jose.fernandez\source\repos\TemplateSF\Domain\obj\Debug\netstandard2.0\Renting.Master.Domain.csproj.CoreCompileInputs.cache
 C:\Users\jose.fernandez\source\repos\TemplateSF\Domain\obj\Debug\netstandard2.0\Renting.Master.Domain.AssemblyInfoInputs.cache
 C:\Users\jose.fernandez\source\repos\TemplateSF\Domain\obj\Debug\netstandard2.0\Renting.Master.Domain.AssemblyInfo.cs
+C:\Users\jose.fernandez\source\repos\TemplateSF\Domain\bin\Debug\netstandard2.0\Renting.Master.Domain.deps.json
+C:\Users\jose.fernandez\source\repos\TemplateSF\Domain\bin\Debug\netstandard2.0\Renting.Master.Domain.dll
+C:\Users\jose.fernandez\source\repos\TemplateSF\Domain\bin\Debug\netstandard2.0\Renting.Master.Domain.pdb
 C:\Users\jose.fernandez\source\repos\TemplateSF\Domain\obj\Debug\netstandard2.0\Renting.Master.Domain.dll
 C:\Users\jose.fernandez\source\repos\TemplateSF\Domain\obj\Debug\netstandard2.0\Renting.Master.Domain.pdb

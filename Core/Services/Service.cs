@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Renting.Master.Core.Services
 {
-    public class Service<TId, TEntity> : IService<TId, TEntity> where TId : struct where TEntity : EntityBase
+    public class Service<TId, TEntity, TEntityDto> : IService<TId, TEntity, TEntityDto> where TId : struct where TEntity : Domain.Entities.EntityBase where TEntityDto: Core.Dtos.EntityBase
     {
         private readonly IERepository<TId,Domain.Entities.EntityBase> repository;
 
