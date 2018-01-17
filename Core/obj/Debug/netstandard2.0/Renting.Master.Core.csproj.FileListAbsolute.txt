@@ -1,0 +1,11 @@
+C:\Users\jose.fernandez\source\repos\TemplateSF\Core\bin\Debug\netstandard2.0\Renting.Master.Core.deps.json
+C:\Users\jose.fernandez\source\repos\TemplateSF\Core\bin\Debug\netstandard2.0\Renting.Master.Core.dll
+C:\Users\jose.fernandez\source\repos\TemplateSF\Core\bin\Debug\netstandard2.0\Renting.Master.Core.pdb
+C:\Users\jose.fernandez\source\repos\TemplateSF\Core\bin\Debug\netstandard2.0\Renting.Master.Domain.dll
+C:\Users\jose.fernandez\source\repos\TemplateSF\Core\bin\Debug\netstandard2.0\Renting.Master.Domain.pdb
+C:\Users\jose.fernandez\source\repos\TemplateSF\Core\obj\Debug\netstandard2.0\Renting.Master.Core.csprojResolveAssemblyReference.cache
+C:\Users\jose.fernandez\source\repos\TemplateSF\Core\obj\Debug\netstandard2.0\Renting.Master.Core.csproj.CoreCompileInputs.cache
+C:\Users\jose.fernandez\source\repos\TemplateSF\Core\obj\Debug\netstandard2.0\Renting.Master.Core.AssemblyInfoInputs.cache
+C:\Users\jose.fernandez\source\repos\TemplateSF\Core\obj\Debug\netstandard2.0\Renting.Master.Core.AssemblyInfo.cs
+C:\Users\jose.fernandez\source\repos\TemplateSF\Core\obj\Debug\netstandard2.0\Renting.Master.Core.dll
+C:\Users\jose.fernandez\source\repos\TemplateSF\Core\obj\Debug\netstandard2.0\Renting.Master.Core.pdb
