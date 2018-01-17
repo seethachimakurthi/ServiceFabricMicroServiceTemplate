@@ -5,13 +5,7 @@ using System.Threading.Tasks;
 
 namespace Renting.Master.Core.Interfaces
 {
-    public interface IVehicleBrandService 
+    public interface IVehicleBrandService : IService<long, Domain.Entities.VehicleBrand, VehicleBrand>
     {
-
-        Task<IEnumerable<VehicleBrand>> GetAllAsync();
-        IEnumerable<VehicleBrand> GetAll();
-        Task<VehicleBrand> FindByIdAsync(long id);
-        VehicleBrand FindById(long id);
-
     }
 }

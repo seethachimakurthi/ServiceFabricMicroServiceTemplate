@@ -4,19 +4,21 @@ using System.Threading.Tasks;
 
 namespace Renting.Master.Core.Interfaces
 {
-    public interface IService<TId, TEntity, TEntityDto> where TId : struct where TEntity : Domain.Entities.EntityBase where TEntityDto: Core.Dtos.EntityBase
+    public interface IService<TId, TEntity, TEntityDto>
+         where TId : struct
+         where TEntityDto : EntityBase
     {
-        Task<IEnumerable<TEntity>> GetAllAsync();
-        IEnumerable<TEntity> GetAll();
-        Task<TEntity> FindByIdAsync(TId id);
-        TEntity FindById(TId id);
-        Task AddAsync(TEntity entity);
-        Task UpdateAsync(TEntity entity);
-        Task DeleteAsync(TEntity entity);
+        Task<IEnumerable<TEntityDto>> GetAllAsync();
+        IEnumerable<TEntityDto> GetAll();
+        Task<TEntityDto> FindByIdAsync(TId id);
+        TEntityDto FindById(TId id);
+        Task AddAsync(TEntityDto entity);
+        Task UpdateAsync(TEntityDto entity);
+        Task DeleteAsync(TEntityDto entity);
         Task DeleteAsync(TId entityId);
-        void Add(TEntity entity);
-        void Update(TEntity entity);
-        void Delete(TEntity entity);
+        void Add(TEntityDto entity);
+        void Update(TEntityDto entity);
+        void Delete(TEntityDto entity);
         void Delete(TId entityId);
     }
 }

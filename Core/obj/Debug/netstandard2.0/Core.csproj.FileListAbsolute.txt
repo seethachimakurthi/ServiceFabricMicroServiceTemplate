@@ -1,9 +1,0 @@
-c:\users\jose.fernandez\source\repos\TemplateSF\Core\bin\Debug\netstandard2.0\Core.deps.json
-c:\users\jose.fernandez\source\repos\TemplateSF\Core\bin\Debug\netstandard2.0\Core.dll
-c:\users\jose.fernandez\source\repos\TemplateSF\Core\bin\Debug\netstandard2.0\Core.pdb
-c:\users\jose.fernandez\source\repos\TemplateSF\Core\obj\Debug\netstandard2.0\Core.csprojResolveAssemblyReference.cache
-c:\users\jose.fernandez\source\repos\TemplateSF\Core\obj\Debug\netstandard2.0\Core.csproj.CoreCompileInputs.cache
-c:\users\jose.fernandez\source\repos\TemplateSF\Core\obj\Debug\netstandard2.0\Core.AssemblyInfoInputs.cache
-c:\users\jose.fernandez\source\repos\TemplateSF\Core\obj\Debug\netstandard2.0\Core.AssemblyInfo.cs
-c:\users\jose.fernandez\source\repos\TemplateSF\Core\obj\Debug\netstandard2.0\Core.dll
-c:\users\jose.fernandez\source\repos\TemplateSF\Core\obj\Debug\netstandard2.0\Core.pdb
