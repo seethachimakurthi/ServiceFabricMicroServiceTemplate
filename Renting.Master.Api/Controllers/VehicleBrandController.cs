@@ -3,33 +3,27 @@ using Microsoft.AspNetCore.Mvc;
 using Renting.Master.Core.Interfaces;
 using Renting.Master.Core.Dtos;
 using Renting.Master.Domain.IRepository;
+using System;
 
 namespace Renting.Master.Api.Controllers
 {
     [Route("api/vehicle")]
     public class VehicleBrandController : Controller
     {
-        private readonly IVehicleBrandService vehicleBrandService;
-        private readonly IVehicleBrandRepository repo;
+        private readonly IVehicleBrandService vehicleBrandService;      
 
-        public VehicleBrandController(IVehicleBrandService vehicleBrandService, IVehicleBrandRepository repo)
+        public VehicleBrandController(IVehicleBrandService vehicleBrandService)
         {
             this.vehicleBrandService = vehicleBrandService;
-            this.repo = repo;
+            
         }
-
-        // GET api/values
+       
         [HttpGet, Route("brands")]
         public IEnumerable<VehicleBrand> GetAll()
         {
             return vehicleBrandService.GetAll();
         }
-
-        [HttpGet, Route("foo")]
-        public IEnumerable<Domain.Entities.VehicleBrand> ReturnString()
-        {
-            return repo.GetAll();
-        }
+      
 
         /*
         // GET api/books/5

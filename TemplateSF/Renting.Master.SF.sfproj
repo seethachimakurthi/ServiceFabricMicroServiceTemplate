@@ -29,9 +29,6 @@
     <None Include="Scripts\Deploy-FabricApplication.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\ServiceBusMessageListener\bin\Debug\**\*.*">
-      <Link>ApplicationPackageRoot\MessageProcessorPkg\Code\%(RecursiveDir)%(Filename)%(Extension)</Link>
-    </Content>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

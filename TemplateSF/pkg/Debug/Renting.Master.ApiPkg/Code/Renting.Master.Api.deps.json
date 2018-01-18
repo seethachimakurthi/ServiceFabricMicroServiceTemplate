@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETFramework,Version=v4.6.1/win7-x64",
-    "signature": "33a56ce8b4cb743b719ea5fe81a4f873160d7cf9"
+    "signature": "30750719ae18f057b04fc1323b2616488d3ec8ad"
   },
   "compilationOptions": {
     "defines": [
@@ -28,6 +28,7 @@
           "Microsoft.ApplicationInsights.AspNetCore": "2.1.1",
           "Microsoft.AspNetCore": "2.0.1",
           "Microsoft.AspNetCore.Mvc": "2.0.2",
+          "Microsoft.AspNetCore.StaticFiles": "2.0.1",
           "Microsoft.ServiceFabric": "6.0.232",
           "Microsoft.ServiceFabric.AspNetCore.Kestrel": "2.8.232",
           "Microsoft.ServiceFabric.Data": "2.8.232",
@@ -1434,7 +1435,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv.dll": {}
         }
       },
-      "Microsoft.AspNetCore.StaticFiles/1.0.4": {
+      "Microsoft.AspNetCore.StaticFiles/2.0.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.1",
           "Microsoft.AspNetCore.Http.Extensions": "2.0.1",
@@ -1443,7 +1444,7 @@
           "Microsoft.Extensions.WebEncoders": "2.0.0"
         },
         "compile": {
-          "lib/net451/Microsoft.AspNetCore.StaticFiles.dll": {}
+          "lib/netstandard2.0/Microsoft.AspNetCore.StaticFiles.dll": {}
         }
       },
       "Microsoft.AspNetCore.WebUtilities/2.0.1": {
@@ -2136,7 +2137,7 @@
       "Swashbuckle.AspNetCore.SwaggerUI/1.1.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Routing": "2.0.1",
-          "Microsoft.AspNetCore.StaticFiles": "1.0.4",
+          "Microsoft.AspNetCore.StaticFiles": "2.0.1",
           "Microsoft.Extensions.FileProviders.Embedded": "1.0.1",
           "Newtonsoft.Json": "10.0.1"
         },
@@ -2383,6 +2384,7 @@
           "Microsoft.ApplicationInsights.AspNetCore": "2.1.1",
           "Microsoft.AspNetCore": "2.0.1",
           "Microsoft.AspNetCore.Mvc": "2.0.2",
+          "Microsoft.AspNetCore.StaticFiles": "2.0.1",
           "Microsoft.ServiceFabric": "6.0.232",
           "Microsoft.ServiceFabric.AspNetCore.Kestrel": "2.8.232",
           "Microsoft.ServiceFabric.Data": "2.8.232",
@@ -3182,7 +3184,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv.dll": {}
         }
       },
-      "Microsoft.AspNetCore.StaticFiles/1.0.4": {
+      "Microsoft.AspNetCore.StaticFiles/2.0.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.1",
           "Microsoft.AspNetCore.Http.Extensions": "2.0.1",
@@ -3191,7 +3193,7 @@
           "Microsoft.Extensions.WebEncoders": "2.0.0"
         },
         "runtime": {
-          "lib/net451/Microsoft.AspNetCore.StaticFiles.dll": {}
+          "lib/netstandard2.0/Microsoft.AspNetCore.StaticFiles.dll": {}
         }
       },
       "Microsoft.AspNetCore.WebUtilities/2.0.1": {
@@ -3884,7 +3886,7 @@
       "Swashbuckle.AspNetCore.SwaggerUI/1.1.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Routing": "2.0.1",
-          "Microsoft.AspNetCore.StaticFiles": "1.0.4",
+          "Microsoft.AspNetCore.StaticFiles": "2.0.1",
           "Microsoft.Extensions.FileProviders.Embedded": "1.0.1",
           "Newtonsoft.Json": "10.0.1"
         },
@@ -4582,12 +4584,12 @@
       "path": "microsoft.aspnetcore.server.kestrel.transport.libuv/2.0.1",
       "hashPath": "microsoft.aspnetcore.server.kestrel.transport.libuv.2.0.1.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.StaticFiles/1.0.4": {
+    "Microsoft.AspNetCore.StaticFiles/2.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-2pNvwewAazhaaCdw2CGUvIcDrNQMlqP57JgBDf3v+pRj1rZ29HVnpvkX6a+TrmRYlJNmmxHOKEt468uE/gDcFw==",
-      "path": "microsoft.aspnetcore.staticfiles/1.0.4",
-      "hashPath": "microsoft.aspnetcore.staticfiles.1.0.4.nupkg.sha512"
+      "sha512": "sha512-F5qVFsyKsVWKS2tgnJ8MVXkc4FNt6NMybRl7gsZw90G7rhscu4M9k2rW0sEtaUS2ZyKu0ObMU2BVu8OjPCUZjQ==",
+      "path": "microsoft.aspnetcore.staticfiles/2.0.1",
+      "hashPath": "microsoft.aspnetcore.staticfiles.2.0.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.WebUtilities/2.0.1": {
       "type": "package",

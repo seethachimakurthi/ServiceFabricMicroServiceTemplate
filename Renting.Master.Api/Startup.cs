@@ -41,12 +41,12 @@ namespace Renting.Master.Api
             services.AddMvc();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Version = "v1", Title = "My API", });
+                c.SwaggerDoc("v1", new Info { Version = "v1", Title = "My API", });                
             });
             services.AddDbContext<LibraryContext>(options =>
                options.UseSqlServer(jsonConfig.GetConnectionString("LibraryConnection")));
 
-            //services.AddApplicationInsightsTelemetry(jsonConfig);
+            services.AddApplicationInsightsTelemetry(jsonConfig);
             //IoC
             CreateDependencyInjection(services);
             //Initialize Mapping            
