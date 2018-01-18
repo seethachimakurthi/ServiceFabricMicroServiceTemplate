@@ -32,8 +32,6 @@
     <Content Include="..\ServiceBusMessageListener\bin\Debug\**\*.*">
       <Link>ApplicationPackageRoot\MessageProcessorPkg\Code\%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Content>
-    <Content Include="ApplicationPackageRoot\MessageProcessorPkg\Config\Settings.xml" />
-    <Content Include="ApplicationPackageRoot\MessageProcessorPkg\ServiceManifest.xml" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

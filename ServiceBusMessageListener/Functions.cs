@@ -12,9 +12,16 @@ namespace Renting.Master.MessageProcessor
     {
         // This function will get triggered/executed when a new message is written 
         // on an Azure Queue called queue.
-        public static void ProcessQueueMessage([QueueTrigger("queue")] string message, TextWriter log)
+        public static void ProcessQueueMessage([QueueTrigger("%queueName%")] string message, TextWriter log)
         {
             log.WriteLine(message);
+        }
+
+        
+        public static void ProcessTopicMessage([ServiceBusTrigger("%topicName%", "%subscriptionName%")] string message,
+        TextWriter logger)
+        {
+            logger.WriteLine("Topic message: " + message);
         }
     }
 }

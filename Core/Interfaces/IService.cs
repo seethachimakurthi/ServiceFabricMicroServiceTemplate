@@ -1,4 +1,5 @@
 ﻿
+using Renting.Master.Core.Dtos;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

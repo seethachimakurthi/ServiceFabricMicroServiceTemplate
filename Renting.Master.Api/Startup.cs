@@ -1,6 +1,9 @@
 ﻿using System;
+using System.IO;
+using System.Reflection;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -20,29 +23,34 @@ namespace Renting.Master.Api
     {
 
         private static IContainer ApplicationContainer { get; set; }
+        public IConfiguration Configuration { get; }
+        public IConfiguration jsonConfig { get; set; }
 
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
+            jsonConfig = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+        }       
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
-        {
+        {            
             services.AddMvc();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Version = "v1", Title = "My API", });
             });
             services.AddDbContext<LibraryContext>(options =>
-               options.UseSqlServer(Configuration.GetConnectionString("LibraryConnection")));
+               options.UseSqlServer(jsonConfig.GetConnectionString("LibraryConnection")));
+
+            //services.AddApplicationInsightsTelemetry(jsonConfig);
             //IoC
             CreateDependencyInjection(services);
-            //Initialize Mapping
+            //Initialize Mapping            
             MappingConfig.Initialize();
-
             return new AutofacServiceProvider(ApplicationContainer);
         }
 
@@ -50,12 +58,10 @@ namespace Renting.Master.Api
         {
             // create a Autofac container builder
             ContainerBuilder builder = new ContainerBuilder();
-
             // read service collection to Autofac
             builder.Populate(services);
-
-            // use and configure Autofac
-            builder.RegisterType<LibraryContext>().As<IQueryableUnitOfWork>().WithParameter("schema", Configuration.GetConnectionString("SchemaName"));
+            // use and configure Autofac           
+            builder.RegisterType<LibraryContext>().As<IQueryableUnitOfWork>().WithParameter("schema", jsonConfig.GetConnectionString("SchemaName"));
             builder.RegisterType<VehicleBrandService>().As<IVehicleBrandService>();
             builder.RegisterType<VehicleBrandRepository>().As<IVehicleBrandRepository>();
             // build the Autofac container
@@ -71,9 +77,7 @@ namespace Renting.Master.Api
             }
 
             app.UseMvc();
-
             app.UseSwagger();
-
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");

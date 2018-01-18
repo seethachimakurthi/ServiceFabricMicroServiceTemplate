@@ -11,14 +11,16 @@ namespace Renting.Master.Domain.Repository
     {
         private IQueueClient SbQueueClient;
         private ITopicClient SbTopicClient;
-        private IConfigurationRoot configuration;
+        private IConfigProvider config;
+        //private IConfigurationRoot configuration;
 
-        public ServiceBusRepository()
+        public ServiceBusRepository(IConfigProvider configuration)
         {
-            InitConfig();
+            //InitConfig();
+            config = configuration;
         }
 
-        private void InitConfig()
+        /*private void InitConfig()
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -26,13 +28,13 @@ namespace Renting.Master.Domain.Repository
 
             configuration = builder.Build();
 
-        }
+        }*/
 
         public void Dispose()
         {
-            if (SbQueueClient.IsClosedOrClosing)
+            if (SbQueueClient != null && SbQueueClient.IsClosedOrClosing)
                 SbQueueClient.CloseAsync();
-            if (SbTopicClient.IsClosedOrClosing)
+            if (SbTopicClient != null && SbTopicClient.IsClosedOrClosing)
                 SbTopicClient.CloseAsync();
         }
 
@@ -51,7 +53,7 @@ namespace Renting.Master.Domain.Repository
 
         private void LoadQueueSettings(string queue)
         {
-            SbQueueClient = new QueueClient(configuration.GetConnectionString("SBConnString"), configuration.GetConnectionString(queue));
+            SbQueueClient = new QueueClient(config.GetConfigValue("ConnectionStrings:SBConnString"), config.GetConfigValue("Queues:"+queue));
         }
 
         public async Task SendMessageToTopic(string topic, Message msg)
@@ -69,7 +71,7 @@ namespace Renting.Master.Domain.Repository
 
         private void LoadTopicSettings(string topic)
         {
-            SbTopicClient = new TopicClient(configuration.GetConnectionString("SBConnString"), configuration.GetConnectionString(topic));
+            SbTopicClient = new TopicClient(config.GetConfigValue("ConnectionStrings:SBConnString"), config.GetConfigValue("Topics:"+topic));
         }
     }
 }

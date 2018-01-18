@@ -11,7 +11,7 @@ namespace Renting.Master.Domain
         {
             Schema = schema;
         }
-
+        
         public DbSet<Entity> GetSet<Entity>() where Entity : Domain.Entities.EntityBase
         {
             return Set<Entity>();
@@ -24,8 +24,7 @@ namespace Renting.Master.Domain
                 return;
             }
             modelBuilder.HasDefaultSchema(Schema);
-            modelBuilder.Entity<Domain.Entities.VehicleBrand>();
-
+            modelBuilder.Entity<Domain.Entities.VehicleBrand>().ToTable("VehicleBrand"); ;
             base.OnModelCreating(modelBuilder);
         }
 
