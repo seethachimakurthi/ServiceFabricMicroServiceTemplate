@@ -54,7 +54,8 @@ namespace Renting.Master.Core.Services
 
         public IEnumerable<TEntityDto> GetAll()
         {
-            loggerHelper.LogInfo(GetType().FullName, "Tests GetAll");
+            loggerHelper.LogWarn(GetType().FullName, "Test Warning log4net GetAll");
+            loggerHelper.LogInfo(GetType().FullName, "Test Info log4net GetAll");
             loggerHelper.LogError(GetType().FullName, new NullReferenceException());
             return from book in repository.GetAll()
                    select Mapper.Map<TEntityDto>(book);

@@ -4,7 +4,7 @@
     <TargetFramework>net461</TargetFramework>
     <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
     <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
-    <ApplicationInsightsResourceId>/subscriptions/3c70aa06-4989-48e7-a238-e92f59e9a721/resourcegroups/defaultGroup/providers/microsoft.insights/components/appinsight</ApplicationInsightsResourceId>
+    <ApplicationInsightsResourceId>/subscriptions/3c70aa06-4989-48e7-a238-e92f59e9a721/resourcegroups/defaultGroup/providers/microsoft.insights/components/testinsight</ApplicationInsightsResourceId>
     <ApplicationInsightsAnnotationResourceId>/subscriptions/3c70aa06-4989-48e7-a238-e92f59e9a721/resourcegroups/defaultGroup/providers/microsoft.insights/components/appinsight</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
 

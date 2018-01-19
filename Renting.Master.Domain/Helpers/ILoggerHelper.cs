@@ -6,5 +6,6 @@ namespace Renting.Master.Domain.Helpers
     {
         void LogError(string metodo, Exception e);
         void LogInfo(string metodo, string message);
+        void LogWarn(string metodo, string message);
     }
 }
