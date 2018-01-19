@@ -5,6 +5,7 @@ using Renting.Master.Core.Interfaces;
 using System.Linq;
 using Renting.Master.Domain.IRepository;
 using AutoMapper;
+using Renting.Master.Domain.Helpers;
 
 namespace Renting.Master.Core.Services
 {
@@ -12,7 +13,7 @@ namespace Renting.Master.Core.Services
     {
         private readonly IVehicleBrandRepository repository;
 
-        public VehicleBrandService(IVehicleBrandRepository repository) : base(repository)
+        public VehicleBrandService(IVehicleBrandRepository repository) : base(repository, new LoggerHelper())
         {
             this.repository = repository;
         }
