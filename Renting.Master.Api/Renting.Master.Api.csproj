@@ -4,7 +4,7 @@
     <TargetFramework>net461</TargetFramework>
     <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
     <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
-    <ApplicationInsightsResourceId>/subscriptions/3c70aa06-4989-48e7-a238-e92f59e9a721/resourcegroups/defaultGroup/providers/microsoft.insights/components/appinsight</ApplicationInsightsResourceId>
+    <ApplicationInsightsResourceId>/subscriptions/3c70aa06-4989-48e7-a238-e92f59e9a721/resourcegroups/defaultGroup/providers/microsoft.insights/components/testinsight</ApplicationInsightsResourceId>
     <ApplicationInsightsAnnotationResourceId>/subscriptions/3c70aa06-4989-48e7-a238-e92f59e9a721/resourcegroups/defaultGroup/providers/microsoft.insights/components/appinsight</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
 
@@ -16,6 +16,7 @@
     <PackageReference Include="Autofac" Version="4.6.2" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.ApplicationInsights.Log4NetAppender" Version="2.4.1" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.1" />

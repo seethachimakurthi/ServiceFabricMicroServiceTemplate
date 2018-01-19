@@ -16,6 +16,7 @@ using Renting.Master.Domain;
 using Renting.Master.Domain.IRepository;
 using Renting.Master.Domain.Repository;
 using Swashbuckle.AspNetCore.Swagger;
+using Renting.Master.Domain.Helpers;
 
 namespace Renting.Master.Api
 {
@@ -60,8 +61,9 @@ namespace Renting.Master.Api
             ContainerBuilder builder = new ContainerBuilder();
             // read service collection to Autofac
             builder.Populate(services);
-            // use and configure Autofac           
+            // use and configure Autofac       +    
             builder.RegisterType<LibraryContext>().As<IQueryableUnitOfWork>().WithParameter("schema", jsonConfig.GetConnectionString("SchemaName"));
+            builder.RegisterType<LoggerHelper>().As<ILoggerHelper>();
             builder.RegisterType<VehicleBrandService>().As<IVehicleBrandService>();
             builder.RegisterType<VehicleBrandRepository>().As<IVehicleBrandRepository>();
             builder.RegisterType<ConfigProvider>().As<IConfigProvider>();
