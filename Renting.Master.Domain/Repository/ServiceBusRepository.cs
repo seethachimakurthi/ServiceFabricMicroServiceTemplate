@@ -9,10 +9,9 @@ namespace Renting.Master.Domain.Repository
 {
     public class ServiceBusRepository : IServiceBusRepository
     {
-        private IQueueClient SbQueueClient;
-        private ITopicClient SbTopicClient;
+        private IQueueClient SbQueueClient;       
         private IConfigProvider config;
-        //private IConfigurationRoot configuration;
+      
 
         public ServiceBusRepository(IConfigProvider configuration)
         {            
@@ -23,16 +22,14 @@ namespace Renting.Master.Domain.Repository
         public void Dispose()
         {
             if (SbQueueClient != null && SbQueueClient.IsClosedOrClosing)
-                SbQueueClient.CloseAsync();
-            if (SbTopicClient != null && SbTopicClient.IsClosedOrClosing)
-                SbTopicClient.CloseAsync();
+                SbQueueClient.CloseAsync();           
         }
 
         public async Task SendMessage(string queue, Message msg)
         {
             try
             {
-                SbQueueClient = new QueueClient(config.GetVal("ConnectionStrings:SBConnString"), config.GetVal("Queues:" + queue));
+                SbQueueClient = new QueueClient(config.GetVal("ServiceBus:Endpoint"), config.GetVal("Queues:" + queue));
                 await SbQueueClient.SendAsync(msg);
             }
             catch (Exception ex)
@@ -40,19 +37,6 @@ namespace Renting.Master.Domain.Repository
                 throw new Exception(ex.Message);
             }
         }        
-
-        public async Task SendMessageToTopic(string topic, Message msg)
-        {
-            try
-            {
-                SbTopicClient = new TopicClient(config.GetVal("ConnectionStrings:SBConnString"), config.GetVal("Topics:" + topic));
-                await SbTopicClient.SendAsync(msg);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
 
     }
 }

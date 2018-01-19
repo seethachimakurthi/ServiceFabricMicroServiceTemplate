@@ -9,19 +9,11 @@ using Microsoft.Azure.WebJobs;
 namespace Renting.Master.MessageProcessor
 {
     public class Functions
-    {
-        // This function will get triggered/executed when a new message is written 
-        // on an Azure Queue called queue.
-        public static void ProcessQueueMessage([QueueTrigger("%queueName%")] string message, TextWriter log)
+    {        
+        // Esta función se ejecutará al llegar un mensaje a la cola %queueName%
+        public static void ProcessTopicMessage([ServiceBusTrigger("%queueName%")] string message, TextWriter logger)
         {
-            log.WriteLine(message);
-        }
-
-        
-        public static void ProcessTopicMessage([ServiceBusTrigger("%topicName%", "%subscriptionName%")] string message,
-        TextWriter logger)
-        {
-            logger.WriteLine("Topic message: " + message);
+            logger.WriteLine("Queue message: " + message);
         }
     }
 }

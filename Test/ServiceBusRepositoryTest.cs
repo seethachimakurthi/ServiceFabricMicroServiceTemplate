@@ -38,19 +38,6 @@ namespace Renting.Master.Core.Test
             
         }
 
-        [TestMethod]
-        public void SendMessageToTopicTest()
-        {
-            using (var scope = Container.BeginLifetimeScope())
-            {
-                var serviceBusRepository = scope.Resolve<IServiceBusRepository>();
-                byte[] msg = Encoding.UTF8.GetBytes(Newtonsoft.Json.JsonConvert.SerializeObject(new { abc = "" }));
-                var message = new Message(msg);
-                var result = serviceBusRepository.SendMessageToTopic("t1", message);
-                result.Wait();
-                Assert.IsTrue(result != null && result.IsCompleted);
-            }
-
-        }
+       
     }
 }

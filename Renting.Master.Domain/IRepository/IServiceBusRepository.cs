@@ -8,7 +8,6 @@ namespace Renting.Master.Domain.IRepository
 {
     public interface IServiceBusRepository : IDisposable
     {
-        Task SendMessage(string queue, Message msg);
-        Task SendMessageToTopic(string topic, Message msg);
+        Task SendMessage(string queue, Message msg);        
     }
 }
