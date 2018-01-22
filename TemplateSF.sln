@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Renting.Master.MessageProce
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Renting.Master.Domain", "Renting.Master.Domain\Renting.Master.Domain.csproj", "{B8C7BA2C-0122-4FCF-AF82-6B8D530D4E8B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Renting.Master.Core.Test", "Test\Renting.Master.Core.Test.csproj", "{5598BD93-ACC5-4EC3-A9B9-6AAEA282DD7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,14 @@ Global
 		{B8C7BA2C-0122-4FCF-AF82-6B8D530D4E8B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B8C7BA2C-0122-4FCF-AF82-6B8D530D4E8B}.Release|x64.ActiveCfg = Release|Any CPU
 		{B8C7BA2C-0122-4FCF-AF82-6B8D530D4E8B}.Release|x64.Build.0 = Release|Any CPU
+		{5598BD93-ACC5-4EC3-A9B9-6AAEA282DD7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5598BD93-ACC5-4EC3-A9B9-6AAEA282DD7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5598BD93-ACC5-4EC3-A9B9-6AAEA282DD7D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5598BD93-ACC5-4EC3-A9B9-6AAEA282DD7D}.Debug|x64.Build.0 = Debug|Any CPU
+		{5598BD93-ACC5-4EC3-A9B9-6AAEA282DD7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5598BD93-ACC5-4EC3-A9B9-6AAEA282DD7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5598BD93-ACC5-4EC3-A9B9-6AAEA282DD7D}.Release|x64.ActiveCfg = Release|Any CPU
+		{5598BD93-ACC5-4EC3-A9B9-6AAEA282DD7D}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

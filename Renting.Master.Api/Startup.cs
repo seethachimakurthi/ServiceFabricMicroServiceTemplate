@@ -66,6 +66,9 @@ namespace Renting.Master.Api
             builder.RegisterType<LoggerHelper>().As<ILoggerHelper>();
             builder.RegisterType<VehicleBrandService>().As<IVehicleBrandService>();
             builder.RegisterType<VehicleBrandRepository>().As<IVehicleBrandRepository>();
+            builder.RegisterType<ConfigProvider>().As<IConfigProvider>();
+            builder.RegisterType<ServiceBusRepository>().As<IServiceBusRepository>();
+            builder.RegisterType<BusQueueClientService>().As<IBusQueueClientService>();
             // build the Autofac container
             ApplicationContainer = builder.Build();
         }
