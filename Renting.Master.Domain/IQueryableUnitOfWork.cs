@@ -9,7 +9,7 @@ namespace Renting.Master.Domain
 {
     public interface IQueryableUnitOfWork : IDisposable
     {
-        DbSet<Entity> GetSet<Entity>() where Entity : Domain.Entities.EntityBase;
+        DbSet<TEntity> GetSet<TEntity, TId>() where TId : struct where TEntity : Domain.Entities.EntityBase<TId>;
         void Commit();
         Task CommitAsync();
     }

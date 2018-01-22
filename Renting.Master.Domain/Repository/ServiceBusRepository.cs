@@ -1,8 +1,6 @@
 ﻿using System;
-using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Azure.ServiceBus;
-using Microsoft.Extensions.Configuration;
 using Renting.Master.Domain.IRepository;
 
 namespace Renting.Master.Domain.Repository

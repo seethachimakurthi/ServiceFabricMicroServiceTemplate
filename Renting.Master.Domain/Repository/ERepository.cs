@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Renting.Master.Domain.Repository
 {
-    public class ERepository<TId, TEntity> : IERepository<TId, TEntity> where TId : struct where TEntity : EntityBase
+    public class ERepository<TId, TEntity> : IERepository<TId, TEntity> where TId : struct where TEntity : EntityBase<TId>
     {
         private readonly IQueryableUnitOfWork unitOfWork;
 
@@ -28,7 +28,7 @@ namespace Renting.Master.Domain.Repository
 
         public IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = "")
         {
-            IQueryable<TEntity> query = unitOfWork.GetSet<TEntity>();
+            IQueryable<TEntity> query = unitOfWork.GetSet<TEntity, TId>();
 
             if (filter != null)
             {
@@ -53,17 +53,17 @@ namespace Renting.Master.Domain.Repository
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return await unitOfWork.GetSet<TEntity>().ToListAsync();
+            return await unitOfWork.GetSet<TEntity, TId>().ToListAsync();
         }
         public Task<TEntity> FindByIdAsync(TId id)
         {
-            return unitOfWork.GetSet<TEntity>().FindAsync(id);
+            return unitOfWork.GetSet<TEntity, TId>().FindAsync(id);
         }
         public async Task AddAsync(TEntity entity)
         {
             if (entity != null)
             {
-                var item = unitOfWork.GetSet<TEntity>();
+                var item = unitOfWork.GetSet<TEntity, TId>();
                 await item.AddAsync(entity);
                 await unitOfWork.CommitAsync();
             }
@@ -72,7 +72,7 @@ namespace Renting.Master.Domain.Repository
         {
             if (entity != null)
             {
-                var book = unitOfWork.GetSet<TEntity>();
+                var book = unitOfWork.GetSet<TEntity, TId>();
                 book.Update(entity);
                 await unitOfWork.CommitAsync();
             }
@@ -81,7 +81,7 @@ namespace Renting.Master.Domain.Repository
         {
             if (entity != null)
             {
-                unitOfWork.GetSet<TEntity>().Remove(entity);
+                unitOfWork.GetSet<TEntity, TId>().Remove(entity);
                 await unitOfWork.CommitAsync();
             }
         }
@@ -97,7 +97,7 @@ namespace Renting.Master.Domain.Repository
         {
             if (entity != null && entity.Any())
             {
-                await unitOfWork.GetSet<TEntity>().AddRangeAsync(entity);
+                await unitOfWork.GetSet<TEntity, TId>().AddRangeAsync(entity);
                 await unitOfWork.CommitAsync();
             }
         }
@@ -111,7 +111,7 @@ namespace Renting.Master.Domain.Repository
 
                     foreach (var item in entity)
                     {
-                        unitOfWork.GetSet<TEntity>().UpdateRange(entity);
+                        unitOfWork.GetSet<TEntity, TId>().UpdateRange(entity);
                     }
 
                     await unitOfWork.CommitAsync();
@@ -129,17 +129,17 @@ namespace Renting.Master.Domain.Repository
 
         public IEnumerable<TEntity> GetAll()
         {
-            return unitOfWork.GetSet<TEntity>();
+            return unitOfWork.GetSet<TEntity, TId>();
         }
         public TEntity FindById(TId id)
         {
-            return this.unitOfWork.GetSet<TEntity>().Find(id);
+            return this.unitOfWork.GetSet<TEntity, TId>().Find(id);
         }
         public void Add(TEntity entity)
         {
             if (entity != null)
             {
-                var item = unitOfWork.GetSet<TEntity>();
+                var item = unitOfWork.GetSet<TEntity, TId>();
                 item.Add(entity);
                 unitOfWork.Commit();
             }
@@ -148,7 +148,7 @@ namespace Renting.Master.Domain.Repository
         {
             if (entity != null)
             {
-                var item = unitOfWork.GetSet<TEntity>();
+                var item = unitOfWork.GetSet<TEntity, TId>();
                 item.Update(entity);
                 unitOfWork.Commit();
             }
@@ -157,7 +157,7 @@ namespace Renting.Master.Domain.Repository
         {
             if (entity != null)
             {
-                unitOfWork.GetSet<TEntity>().Remove(entity);
+                unitOfWork.GetSet<TEntity, TId>().Remove(entity);
                 unitOfWork.Commit();
             }
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Renting.Master.Domain.IRepository
 {
-    public interface IERepository<TId, TEntity> : IDisposable where TId : struct where TEntity : EntityBase
+    public interface IERepository<TId, TEntity> : IDisposable where TId : struct where TEntity : EntityBase<TId>
     {
         IQueryableUnitOfWork UnitOfWork { get; }
         Task<IEnumerable<TEntity>> GetAllAsync();

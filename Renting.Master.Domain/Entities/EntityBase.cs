@@ -1,7 +1,7 @@
 ﻿namespace Renting.Master.Domain.Entities
 {
-    public class EntityBase
+    public class EntityBase<TId> where TId : struct
     {
-        public long Id { get; set; }
+        public TId Id { get; set; }
     }
 }

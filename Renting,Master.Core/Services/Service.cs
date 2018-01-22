@@ -12,8 +12,8 @@ namespace Renting.Master.Core.Services
 {
     public class Service<TId, TEntity, TEntityDto> : IService<TId, TEntity, TEntityDto>
         where TId : struct
-        where TEntityDto : EntityBase
-        where TEntity : Domain.Entities.EntityBase
+        where TEntityDto : EntityBase<TId>
+        where TEntity : Domain.Entities.EntityBase<TId>
     {
         private readonly IERepository<TId, TEntity> repository;
         private readonly ILoggerHelper loggerHelper;
@@ -54,11 +54,17 @@ namespace Renting.Master.Core.Services
 
         public IEnumerable<TEntityDto> GetAll()
         {
-            loggerHelper.LogWarn(GetType().FullName, "Test Warning log4net GetAll");
-            loggerHelper.LogInfo(GetType().FullName, "Test Info log4net GetAll");
-            loggerHelper.LogError(GetType().FullName, new NullReferenceException());
-            return from book in repository.GetAll()
-                   select Mapper.Map<TEntityDto>(book);
+            try
+            {
+                loggerHelper.LogInfo(GetType().FullName, "Obtener todos "+ typeof(TEntityDto).Name);
+                //loggerHelper.LogWarn(GetType().FullName, "Test Warning log4net GetAll");
+                return from book in repository.GetAll()
+                       select Mapper.Map<TEntityDto>(book);
+            }catch(Exception ex)
+            {
+                loggerHelper.LogError(GetType().FullName, ex);
+                return new List<TEntityDto>();
+            }
         }
         public TEntityDto FindById(TId id)
         {

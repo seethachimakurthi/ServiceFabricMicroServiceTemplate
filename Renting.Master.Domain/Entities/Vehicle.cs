@@ -1,6 +1,6 @@
 ﻿namespace Renting.Master.Domain.Entities
 {
-    public class Vehicle : EntityBase
+    public class Vehicle : EntityBase<long>
     {
         public string Description {get; set; }
         public VehicleBrand BrandId { get; set; }
