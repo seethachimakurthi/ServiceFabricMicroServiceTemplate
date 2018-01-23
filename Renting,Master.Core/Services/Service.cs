@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Renting.Master.Core.Dtos;
 using Renting.Master.Core.Interfaces;
-using Renting.Master.Domain.Helpers;
 using Renting.Master.Domain.IRepository;
 using System;
 using System.Collections.Generic;
@@ -16,12 +15,12 @@ namespace Renting.Master.Core.Services
         where TEntity : Domain.Entities.EntityBase<TId>
     {
         private readonly IERepository<TId, TEntity> repository;
-        private readonly ILoggerHelper loggerHelper;
+        private readonly log4net.ILog loggerHelper;
 
-        public Service(IERepository<TId, TEntity> repository, ILoggerHelper loggerHelper)
+        public Service(IERepository<TId, TEntity> repository)
         {
             this.repository = repository;
-            this.loggerHelper = loggerHelper;
+            this.loggerHelper = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         }
 
         public async Task<IEnumerable<TEntityDto>> GetAllAsync()
@@ -56,13 +55,11 @@ namespace Renting.Master.Core.Services
         {
             try
             {
-                loggerHelper.LogInfo(GetType().FullName, "Obtener todos "+ typeof(TEntityDto).Name);
-                //loggerHelper.LogWarn(GetType().FullName, "Test Warning log4net GetAll");
                 return from book in repository.GetAll()
                        select Mapper.Map<TEntityDto>(book);
             }catch(Exception ex)
             {
-                loggerHelper.LogError(GetType().FullName, ex);
+                loggerHelper.Error("Mensaje error", ex);
                 return new List<TEntityDto>();
             }
         }

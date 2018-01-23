@@ -1,7 +1,6 @@
 ﻿using Renting.Master.Core.Dtos;
 using Renting.Master.Core.Interfaces;
 using Renting.Master.Domain.IRepository;
-using Renting.Master.Domain.Helpers;
 
 namespace Renting.Master.Core.Services
 {
@@ -9,7 +8,7 @@ namespace Renting.Master.Core.Services
     {
         private readonly IVehicleBrandRepository repository;
 
-        public VehicleBrandService(IVehicleBrandRepository repository) : base(repository, new LoggerHelper())
+        public VehicleBrandService(IVehicleBrandRepository repository) : base(repository)
         {
             this.repository = repository;
         }

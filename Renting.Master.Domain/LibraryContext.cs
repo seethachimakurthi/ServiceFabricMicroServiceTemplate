@@ -38,26 +38,10 @@ namespace Renting.Master.Domain
             {
                 ex.Entries.Single().Reload();
             }
-            //catch (DbUpdateException ex)
-            //{
-            //    //logger.Log(LogLevel.Error, ex.Message, ex);
-            //    throw;
-            //}
-            //catch (DbEntityValidationException ex)
-            //{
-            //    foreach (var eve in ex.EntityValidationErrors)
-            //    {
-            //        logger.Log(LogLevel.Critical, "Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-            //            eve.Entry.Entity.GetType().Name, eve.Entry.State);
-            //        foreach (var ve in eve.ValidationErrors)
-            //        {
-            //            logger.Log(LogLevel.Critical, "- Property: \"{0}\", Error: \"{1}\"",
-            //                ve.PropertyName, ve.ErrorMessage);
-            //        }
-            //    }
-
-            //    throw;
-            //}
+            catch (DbUpdateException)
+            {
+                throw;
+            }
         }
 
         public async Task CommitAsync()
@@ -70,26 +54,10 @@ namespace Renting.Master.Domain
             {
                 ex.Entries.Single().Reload();
             }
-            //catch (DbUpdateException ex)
-            //{
-            //    //logger.Log(LogLevel.Error, ex.Message, ex);
-            //    throw;
-            //}
-            //catch (DbEntityValidationException ex)
-            //{
-            //    foreach (var eve in ex.EntityValidationErrors)
-            //    {
-            //        logger.Log(LogLevel.Critical, "Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-            //            eve.Entry.Entity.GetType().Name, eve.Entry.State);
-            //        foreach (var ve in eve.ValidationErrors)
-            //        {
-            //            logger.Log(LogLevel.Critical, "- Property: \"{0}\", Error: \"{1}\"",
-            //                ve.PropertyName, ve.ErrorMessage);
-            //        }
-            //    }
-
-            //    throw;
-            //}
+            catch (DbUpdateException ex)
+            {
+                throw;
+            }
         }
     }
 }
